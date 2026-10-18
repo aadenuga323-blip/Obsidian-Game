@@ -67,8 +67,6 @@ func _on_select_b_pressed() -> void:
 	Globalvar.current_class=picked_class
 	queue_free()
 
-
-
 func show_class(selected: Label) -> void:
 	swordsman.hide()
 	ninja.hide()

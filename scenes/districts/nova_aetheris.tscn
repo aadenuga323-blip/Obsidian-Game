@@ -3,38 +3,39 @@
 [ext_resource type="PackedScene" uid="uid://bru07fd40ig0g" path="res://scenes/mobs/player.tscn" id="1_ycsgn"]
 [ext_resource type="PackedScene" uid="uid://dohrsbcmtf027" path="res://scenes/ui/ClassSelection_UIA.tscn" id="2_nlow5"]
 [ext_resource type="PackedScene" uid="uid://bj44m8ipvlc72" path="res://scenes/area/maingate.tscn" id="3_mpil3"]
+[ext_resource type="PackedScene" uid="uid://bc2aldnwy1jov" path="res://Models/New Folder/Room.glb" id="4_nlow5"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
-size = Vector3(42.61209, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlow5"]
+sky_top_color = Color(0.14509805, 1, 1, 1)
+sky_horizon_color = Color(1.6254448, 1.9421114, 1.9421114, 1)
+ground_bottom_color = Color(0.5882353, 1, 1, 1)
+ground_horizon_color = Color(1.6254448, 1.9421114, 1.9421114, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vrlf"]
-albedo_color = Color(0.385667, 0.38566706, 0, 1)
+[sub_resource type="Sky" id="Sky_mpil3"]
+sky_material = SubResource("ProceduralSkyMaterial_nlow5")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
-
-[sub_resource type="Environment" id="Environment_82mq4"]
-background_energy_multiplier = 5.0
+[sub_resource type="Environment" id="Environment_mo4hm"]
+background_mode = 2
+sky = SubResource("Sky_mpil3")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Nova_Aetheris" type="Node3D" unique_id=970347408]
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=286976840]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1354932833]
+environment = SubResource("Environment_mo4hm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=629110179]
-transform = Transform3D(2, 0, 0, 0, 1.245, 0, 0, 0, 100, 0, 0, 0)
-mesh = SubResource("BoxMesh_1vivr")
-surface_material_override/0 = SubResource("StandardMaterial3D_8vrlf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1060292519]
-transform = Transform3D(85, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-shape = SubResource("BoxShape3D_v5gy4")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1114443477]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1839658414 instance=ExtResource("1_ycsgn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.6230583, 18.083405)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=532396157]
-environment = SubResource("Environment_82mq4")
-
 [node name="ClassSelection_UIA" parent="." unique_id=1316626057 instance=ExtResource("2_nlow5")]
 
 [node name="Gate" parent="." unique_id=344031724 instance=ExtResource("3_mpil3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.415855)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.866889, 0, -21.805964)
+
+[node name="Room" parent="." unique_id=22568638 instance=ExtResource("4_nlow5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.076992, 0.14919806, 2.4580536)

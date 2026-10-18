@@ -1,41 +1,34 @@
 [gd_scene format=3 uid="uid://bru07fd40ig0g"]
 
 [ext_resource type="Script" uid="uid://dw5xx3jccle4c" path="res://scripts/player.gd" id="1_v8ti6"]
+[ext_resource type="Script" uid="uid://dfwfh5rvif4y8" path="res://scripts/Player/main_character.gd" id="2_2wixh"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_1vivr"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_atqw1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vrlf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8ti6"]
 albedo_color = Color(0.23610085, 0.57402885, 1, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1vivr"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wixh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1vivr"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mid2d"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5gy4"]
-albedo_color = Color(1, 0.015686275, 0.015686275, 1)
-
-[node name="Player" type="CharacterBody3D" unique_id=805807228 groups=["players"]]
+[node name="Player" type="Node3D" unique_id=1760609424]
 script = ExtResource("1_v8ti6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=125212899]
-mesh = SubResource("CapsuleMesh_1vivr")
-surface_material_override/0 = SubResource("StandardMaterial3D_8vrlf")
+[node name="Main character" type="CharacterBody3D" parent="." unique_id=579077710]
+script = ExtResource("2_2wixh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1595727288]
-shape = SubResource("CapsuleShape3D_1vivr")
+[node name="Mesh" type="MeshInstance3D" parent="Main character" unique_id=2133566745]
+mesh = SubResource("CapsuleMesh_atqw1")
+surface_material_override/0 = SubResource("StandardMaterial3D_v8ti6")
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=1929342075]
+[node name="Collision" type="CollisionShape3D" parent="Main character" unique_id=213296752]
+shape = SubResource("CapsuleShape3D_2wixh")
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=235053383]
-transform = Transform3D(1, 0, 0, 0, 0.94961774, 0.31341043, 0, -0.31341043, 0.94961774, 0, 2.8860621, 6.5262775)
+[node name="Camera pivot" type="Node3D" parent="." unique_id=706486454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55628645, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=125694366]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7256757, 3.8014905)
-shape = SubResource("BoxShape3D_1vivr")
+[node name="Spring arm" type="SpringArm3D" parent="Camera pivot" unique_id=329579413]
+shape = SubResource("BoxShape3D_mid2d")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1593276277]
-transform = Transform3D(0.57520425, 0, 0, 0, 0.43876082, 0, 0, 0, 0.89259845, 0, 0.2879215, -0.6523415)
-mesh = SubResource("BoxMesh_1vivr")
-surface_material_override/0 = SubResource("StandardMaterial3D_v5gy4")
+[node name="Camera" type="Camera3D" parent="Camera pivot/Spring arm" unique_id=991343850]
