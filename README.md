@@ -6,8 +6,35 @@ Core Loop: Arrive → Work → Earn → Live → Fight → Grow → Rank Up → 
 
 # Districts
 The Heights — This is the residential area.
-Velocity Quarter — This is the vehicle district.
-The Foundry — This is the central market area.
-Central Nexus / The Hub — This is the main meeting place for the whole city.
+<br />Velocity Quarter — This is the vehicle district.
+<br />The Foundry — This is the central market area.
+<br />Central Nexus / The Hub — This is the main meeting place for the whole city.
+
+# Classes
+- Swordsman
+- Ninja<br />
+- Archer<br />
+- Sniper<br />
+- Assault<br />
+- Engineer
 
 
+
+
+
+
+
+## Roadmap
+- [x] Feature 1: Initial deployment setup
+- [x] In-game Systems:
+      - [ ] Login System
+      - [ ] Cinematic System
+      - [ ] Inventory System
+      - [ ] Class Selection System
+      - [ ] Weapon System
+      - [ ] Job/Quest System
+      - [ ] Phone System
+      - [ ] Rank Advancement System
+- [ ] Multiplayer-implementation
+- [ ] Anti-Ddos Attack
+- [ ] Limit Rate
