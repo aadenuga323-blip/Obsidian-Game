@@ -1,7 +1,7 @@
 # Obsidian
 PROJECT SUMMARY
 
-Concept: 3D multiplayer MMORPG
+Concept: 3D multiplayer MMORPG <br />
 Core Loop: Arrive → Work → Earn → Live → Fight → Grow → Rank Up → Build Your Legacy
 
 # Districts
