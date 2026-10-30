@@ -24,17 +24,18 @@ The Heights — This is the residential area.
 
 
 
-## Roadmap
+## Roadmap 
 - [x] Feature 1: Initial deployment setup
 - [x] In-game Systems:
-      - [ ] Login System
-      - [ ] Cinematic System
-      - [ ] Inventory System
-      - [ ] Class Selection System
-      - [ ] Weapon System
-      - [ ] Job/Quest System
-      - [ ] Phone System
-      - [ ] Rank Advancement System
+    - [ ] Login System
+    - [x] Cinematic System
+    - [x] Inventory System
+    - [x] Class Selection System
+    - [ ] Weapon System
+    - [x] Job/Quest System
+    - [ ] Phone System
+    - [x] Rank Advancement System
 - [ ] Multiplayer-implementation
 - [ ] Anti-Ddos Attack
 - [ ] Limit Rate
+
