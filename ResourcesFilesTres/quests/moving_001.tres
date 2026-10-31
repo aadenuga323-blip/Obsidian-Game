@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" uid="uid://dd4pjmcklbw7q" path="res://scripts/QuestFolder/QuestSystem/QuestData.gd" id="1_q"]
+
+[resource]
+script = ExtResource("1_q")
+quest_id = "moving_001"
+title = "Help a Move"
+description = "Help move belongings into a new apartment in The Heights. Van recommended."
+target = 1
+renown_reward = 18
+credits_reward = 8
+client = "Heights Resident"
+job_type = "Moving"
+pay = 260
+distance_m = 220
+duration_min = 7
+has_location = true
+location = Vector3(60, 0, -40)
+metadata/_custom_type_script = "uid://dd4pjmcklbw7q"

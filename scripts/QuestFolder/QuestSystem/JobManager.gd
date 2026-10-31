@@ -55,6 +55,42 @@ func load_quests() -> void:
 	print("Loaded ", jobs.size(), " quest resources.")
 
 
+## Credits paid by the most recently completed job (after the reputation modifier).
+var last_payout: int = 0
+
+
+## Credits a job pays right now: lower reputation reduces pay (design doc, City Combat Rules).
+func job_pay(job_id: String) -> int:
+	var job: QuestData = get_quest(job_id)
+	if job == null:
+		return 0
+	var rep_factor := 0.6 + 0.4 * (float(Globalvar.current_reputation) / 100.0)
+	return int(round(job.pay * rep_factor))
+
+
+## Job ids that can be accepted right now (not active, not completed).
+func available_jobs() -> Array[String]:
+	var out: Array[String] = []
+	var ids: Array = jobs.keys()
+	ids.sort()
+	for id in ids:
+		if not Globalvar.completed_jobs.has(id) and Globalvar.active_job_id != id:
+			out.append(id)
+	return out
+
+
+func cancel_job() -> void:
+	if Globalvar.active_job_id == "":
+		return
+	var job_id: String = Globalvar.active_job_id
+	Globalvar.active_job_id = ""
+	Globalvar.active_job_title = ""
+	Globalvar.active_job_description = ""
+	Globalvar.active_job_progress = 0
+	Globalvar.active_job_target = 0
+	job_progress_updated.emit(job_id, 0, 0)
+
+
 func get_quest(job_id: String) -> QuestData:
 	return jobs.get(job_id) as QuestData
 
@@ -184,6 +220,9 @@ func complete_job(job_id: String) -> bool:
 	)
 
 	Globalvar.current_points += earned_points
+	last_payout = job_pay(job_id)
+	Globalvar.add_credits(last_payout)
+	Globalvar.change_reputation(1)
 
 	if not Globalvar.completed_jobs.has(job_id):
 		Globalvar.completed_jobs.append(job_id)

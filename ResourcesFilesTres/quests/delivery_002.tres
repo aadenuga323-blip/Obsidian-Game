@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" uid="uid://dd4pjmcklbw7q" path="res://scripts/QuestFolder/QuestSystem/QuestData.gd" id="1_q"]
+
+[resource]
+script = ExtResource("1_q")
+quest_id = "delivery_002"
+title = "Foundry Parts Run"
+description = "Pick up a crate of parts at the Hub and drop it at The Foundry."
+target = 1
+renown_reward = 12
+credits_reward = 6
+client = "Foundry Desk"
+job_type = "Delivery"
+pay = 180
+distance_m = 140
+duration_min = 4
+has_location = true
+location = Vector3(-40, 0, 20)
+metadata/_custom_type_script = "uid://dd4pjmcklbw7q"
