@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" uid="uid://dd4pjmcklbw7q" path="res://scripts/QuestFolder/QuestSystem/QuestData.gd" id="1_q"]
+
+[resource]
+script = ExtResource("1_q")
+quest_id = "foundry_001"
+title = "Foundry Shift"
+description = "Assist at the market stalls for a short shift."
+target = 1
+renown_reward = 14
+credits_reward = 6
+client = "The Foundry"
+job_type = "Foundry"
+pay = 150
+distance_m = 140
+duration_min = 5
+has_location = true
+location = Vector3(-40, 0, 20)
+metadata/_custom_type_script = "uid://dd4pjmcklbw7q"

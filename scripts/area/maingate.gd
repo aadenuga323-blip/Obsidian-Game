@@ -13,6 +13,8 @@ func player_entered_gate():
 	_on_intro_triggered("EnterTheGate")
 	await $"../GameUI".play_typewriter_effect(dialogue_text)
 	player.cinematic_scene = false
+	# Design doc, Step Three: the Job Agent calls moments after you walk through the gates.
+	Phone.incoming_call("job_agent", PhoneData.FIRST_CALL, "Open Job Board", "jobs")
 	
 	
 @onready var cinematic_manager=$"../CinematicManager"
